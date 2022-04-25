@@ -1,24 +1,11 @@
 <section class="home">
+     <h1>Home Page</h1>
      <div class="container">
-          <div class="archive-list mt-5">
+          <div class="article-list mt-5">
+               <h4>Articles</h4>
                <div class="row gy-5">
-                    <div class="col-4">
-                         <app-card></app-card>
-                    </div>
-                    <div class="col-4">
-                         <app-card></app-card>
-                    </div>
-                    <div class="col-4">
-                         <app-card></app-card>
-                    </div>
-                    <div class="col-4">
-                         <app-card></app-card>
-                    </div>
-                    <div class="col-4">
-                         <app-card></app-card>
-                    </div>
-                    <div class="col-4">
-                         <app-card></app-card>
+                    <div class="col-4" *ngFor="let article of articles">
+                         <app-card [article]="article"></app-card>
                     </div>
                </div>
           </div>
