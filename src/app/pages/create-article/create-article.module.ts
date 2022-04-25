@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { CreateArticleComponent } from './create-article.component';
 import { CreateArticleRoutingModule } from './create-article-routing.module';
 import { AppMaterailModule } from 'src/app/modules/material.module';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -10,7 +13,11 @@ import { AppMaterailModule } from 'src/app/modules/material.module';
      imports: [
           CommonModule,
           CreateArticleRoutingModule,
-          AppMaterailModule
+          AppMaterailModule,
+          AngularEditorModule,
+          HttpClientModule,
+          ReactiveFormsModule,
+          FormsModule
      ],
      declarations: [CreateArticleComponent],
 })

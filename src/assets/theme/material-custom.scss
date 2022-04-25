@@ -13,6 +13,7 @@
 }
 
 #grayInput .mat-form-field-flex {
+  background-color: white;
   border-radius: 15px;
   border: 2px solid lighten($color: gray, $amount: 20);
   height: 50px;
@@ -30,7 +31,7 @@
 
 #grayInput .mat-form-field:is(.mat-form-field-invalid) {
   .mat-form-field-flex {
-    border: 1px solid red !important;
+    border: 2px solid red !important;
   }
 
   .mat-form-field-label {
@@ -40,7 +41,7 @@
 
 #grayInput .mat-form-field:is(.ng-valid) {
   .mat-form-field-flex {
-    border: 1px solid green !important;
+    border: 2px solid green !important;
   }
 
   .mat-form-field-label {

@@ -24,6 +24,33 @@ h5 {
 }
 
 
-.mat-drawer-content{
+.mat-drawer-content {
   height: 100vh !important;
+}
+
+
+.angular-editor-textarea {
+  color: black;
+}
+
+.angular-editor-textarea {
+  border: 2px solid lighten($color: gray, $amount: 20) !important;
+  border-radius: 10px;
+}
+
+.angular-editor-toolbar {
+  background-color: transparent !important;
+  padding: 0.5rem !important;
+  border: 2px solid lighten($color: gray, $amount: 20) !important;
+  border-radius: 10px;
+}
+
+.angular-editor-toolbar-set {
+
+  button,
+  .ae-picker-options {
+    border-radius: 10px !important;
+    background-color: #aa9fff !important;
+    color: white !important;
+  }
 }
