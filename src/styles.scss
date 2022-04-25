@@ -2,11 +2,29 @@
 
 html,
 body {
-  height: 100%;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: #eaeaea;
+}
+
+.page {
+  height: 100vh;
+}
+
+section{
+  margin-top: 50px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: black;
+  font-weight: 550 !important;
 }

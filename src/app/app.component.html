@@ -1,24 +1,24 @@
-<section>
-     <mat-drawer-container class="drawer-container" autosize>
-          <mat-drawer #drawer class="sidenav" mode="side" opened>
-            <div class="side-links mt-5">
-                 <ul class="nav-links">
-                   <li class="nav-link">
-                     Home
-                   </li>
-                   <li class="nav-link">
-                    Create Article
-                  </li>
-                  <li class="nav-link">
-                    Profile
-                  </li>
-                 </ul>
-            </div>
-          </mat-drawer>
-        
-          <div class="sidenav-content">
-               <router-outlet></router-outlet>
-          </div>
-        
-        </mat-drawer-container>
-</section>
+<mat-drawer-container class="drawer-container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side" opened>
+    <div class="side-links mt-5">
+      <ul class="nav-links">
+        <li class="nav-link" routerLink="home">
+          Home
+        </li>
+        <li class="nav-link" routerLink="create-article">
+          Create Article
+        </li>
+        <li class="nav-link" routerLink="profile">
+          Profile
+        </li>
+      </ul>
+    </div>
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <div class="page container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</mat-drawer-container>
