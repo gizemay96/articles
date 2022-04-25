@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './modules/shared.module';
 import { FormsModule } from '@angular/forms';
 import { AppMaterailModule } from './modules/material.module';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './_store/reducers';
 
 
 @NgModule({
@@ -20,6 +22,12 @@ import { AppMaterailModule } from './modules/material.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    StoreModule.forRoot(reducers, {
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
     // Custom Modules
     SharedModule,
     AppMaterailModule

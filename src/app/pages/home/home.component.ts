@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Article } from 'src/app/types/article.type';
-import  articlesData  from '../../json/articles.json'
+import { getArticles } from 'src/app/_store/actions/article.actions';
+import articlesData from '../../json/articles.json'
 
 @Component({
   selector: 'app-home',
@@ -11,7 +13,11 @@ export class HomeComponent implements OnInit {
 
   articles: Article[] = articlesData;
 
-  constructor() { }
+  constructor(private store: Store) {
+    this.store.select(getArticles).subscribe(res => {
+      this.articles = res.articles;
+    });
+  }
 
   ngOnInit(): void {
   }
