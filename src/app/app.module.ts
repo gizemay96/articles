@@ -12,7 +12,11 @@ import { AppMaterailModule } from './modules/material.module';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './_store/reducers';
 
+import { localStorageSync } from 'ngrx-store-localstorage';
 
+export function localStorageSyncReducer(rootReducer: any) {
+  return localStorageSync({ keys: ['articles'], rehydrate: true })(rootReducer);
+}
 @NgModule({
   declarations: [
     AppComponent
@@ -23,6 +27,7 @@ import { reducers } from './_store/reducers';
     BrowserAnimationsModule,
     FormsModule,
     StoreModule.forRoot(reducers, {
+      metaReducers: [localStorageSyncReducer],
       runtimeChecks: {
         strictStateImmutability: true,
         strictActionImmutability: true

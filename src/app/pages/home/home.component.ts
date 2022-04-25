@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Article } from 'src/app/types/article.type';
-import { getArticles } from 'src/app/_store/actions/article.actions';
+import { getArticles, removeArticle } from 'src/app/_store/actions/article.actions';
 import articlesData from '../../json/articles.json'
 
 @Component({
@@ -20,6 +20,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  deleteArticle(article = {}){
+    this.store.dispatch(removeArticle(article));
   }
 
 }
