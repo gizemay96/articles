@@ -1,0 +1,57 @@
+// Gray Input
+#grayInput .mat-form-field-hide-placeholder .mat-form-field-label-wrapper {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 550;
+}
+
+
+/* Font color */
+#grayInput input.mat-input-element {
+  color: darken($color: gray, $amount: 10);
+  font-weight: 550;
+}
+
+#grayInput .mat-form-field-flex {
+  border-radius: 15px;
+  border: 2px solid lighten($color: gray, $amount: 20);
+  height: 50px;
+}
+
+#grayInput .mat-form-field-infix {
+  top: -6px;
+}
+
+#grayInput .mat-form-field {
+  .mat-form-field-label {
+    color: darken($color: gray, $amount: 10) !important;
+  }
+}
+
+#grayInput .mat-form-field:is(.mat-form-field-invalid) {
+  .mat-form-field-flex {
+    border: 1px solid red !important;
+  }
+
+  .mat-form-field-label {
+    color: red !important;
+  }
+}
+
+#grayInput .mat-form-field:is(.ng-valid) {
+  .mat-form-field-flex {
+    border: 1px solid green !important;
+  }
+
+  .mat-form-field-label {
+    color: green !important;
+  }
+}
+
+#grayInput .mat-form-field-underline {
+  display: none;
+}
+
+#grayInput .mat-button-wrapper {
+  color: gray;
+}

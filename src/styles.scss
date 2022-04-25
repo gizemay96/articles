@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import './assets/theme/material-custom.scss';
 
 html,
 body {
-  min-height: 100vh;
-  overflow: hidden;
+  height: 100vh;
 }
 
 body {
@@ -12,13 +12,7 @@ body {
   background-color: #eaeaea;
 }
 
-.page {
-  height: 100vh;
-}
 
-section{
-  margin-top: 50px;
-}
 
 h1,
 h2,
@@ -27,4 +21,9 @@ h4,
 h5 {
   color: black;
   font-weight: 550 !important;
+}
+
+
+.mat-drawer-content{
+  height: 100vh !important;
 }

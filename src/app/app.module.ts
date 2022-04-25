@@ -5,8 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatSidenavModule } from '@angular/material/sidenav';
+
 import { SharedModule } from './modules/shared.module';
+import { FormsModule } from '@angular/forms';
+import { AppMaterailModule } from './modules/material.module';
 
 
 @NgModule({
@@ -17,10 +19,10 @@ import { SharedModule } from './modules/shared.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSidenavModule,
-
+    FormsModule,
     // Custom Modules
-    SharedModule
+    SharedModule,
+    AppMaterailModule
   ],
   providers: [],
   bootstrap: [AppComponent]
