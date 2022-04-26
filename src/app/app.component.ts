@@ -19,7 +19,7 @@ export class AppComponent {
     this.innerWidth = window.innerWidth;
   }
 
-  constructor(private router: Router , private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
     this.innerWidth = window.innerWidth;
@@ -29,15 +29,17 @@ export class AppComponent {
     return this.router.url === url;
   }
 
-  logout(){
+  logout() {
     this.router.navigate(['/home']);
     setTimeout(() => {
       localStorage.removeItem('user');
-      this.drawer.toggle();
+      if (this.innerWidth < 960) {
+        this.drawer.toggle();
+      }
     }, 200);
   }
 
-  getUser(){
+  getUser() {
     return !!this.authService.getUser();
   }
 }
