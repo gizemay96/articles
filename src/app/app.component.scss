@@ -9,10 +9,10 @@
   background-color: unset;
 }
 
+.logo {
+  width: 40px;
+}
 .nav-links {
-  .logo {
-    width: 40px;
-  }
 
   .nav-icon {
     width: 25px;
@@ -35,4 +35,19 @@
   .nav-text {
     margin: 5px 0 0 10px;
   }
+}
+
+.mobile-nav{
+  padding: 0 15px;
+  .hamburger-btn{
+    background: none;
+    border: none;
+  
+    .icon{
+      font-size: 40px;
+      color: #7e627d;
+      margin-right: 10px;
+    }
+  }
+  
 }

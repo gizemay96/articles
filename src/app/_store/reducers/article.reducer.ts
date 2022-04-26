@@ -26,7 +26,9 @@ const articleObj = createReducer(initialArticles,
      // Remove Article From State
      on(removeArticle, (state, action) => {
           const index = state.map(item => item.id).indexOf(action.id);
-          return state.slice(0, index);
+          let newState = JSON.parse(JSON.stringify(state));
+          newState.splice(index, 1);
+          return [...newState]
      }),
 
      // Get Article List

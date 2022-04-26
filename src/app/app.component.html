@@ -1,32 +1,48 @@
 <mat-drawer-container class="drawer-container" autosize>
-  <mat-drawer #drawer class="sidenav" mode="side" [opened]="innerWidth > 960">
+  <mat-drawer #drawer class="sidenav" [mode]="innerWidth > 960 ? 'side' : 'over'" [opened]="innerWidth > 960"
+    [ngClass]="{'mobile-drawer': innerWidth < 960}">
     <div class="side-links mt-5">
       <ul class="nav-links">
         <li class="nav-link" routerLink="home">
-         <span class="d-flex align-items-center">
-          <img class="logo" src="/assets/image/logo.png" alt="">
-          <div class="nav-text">Article App</div>
-         </span>
+          <span class="d-flex align-items-center">
+            <img class="logo" src="/assets/image/logo.png" alt="">
+            <div class="nav-text">Article App</div>
+          </span>
         </li>
         <hr>
-        <li class="nav-link" routerLink="home" [ngClass]="{'active': isActivePage('/home')}" >
-         <span class="d-flex align-items-center">
-          <img class="nav-icon" src="/assets/image/home.png" alt="">
-          <div class="nav-text">Home</div>
-         </span>
+        <li class="nav-link" routerLink="home" [ngClass]="{'active': isActivePage('/home')}">
+          <span class="d-flex align-items-center">
+            <img class="nav-icon" src="/assets/image/home.png" alt="">
+            <div class="nav-text">Home</div>
+          </span>
         </li>
         <li class="nav-link" routerLink="create-article" [ngClass]="{'active': isActivePage('/create-article')}">
-         <span class="d-flex align-items-center">
-          <img class="nav-icon" src="/assets/image/write.png" alt="">
-          <div class="nav-text">Add Article</div>
-         </span>
+          <span class="d-flex align-items-center">
+            <img class="nav-icon" src="/assets/image/write.png" alt="">
+            <div class="nav-text">Add Article</div>
+          </span>
         </li>
       </ul>
     </div>
   </mat-drawer>
 
   <div class="sidenav-content">
+    <!-- Navber Mobile -->
+    <div class="mobile-nav d-flex justify-content-between align-items-center">
+      <div class="logo-div" routerLink="home">
+        <img class="logo" src="/assets/image/logo.png" alt="">
+      </div>
+      <div class="text">
+        <h2 class="mt-3">Article App</h2>
+      </div>
+      <div class="toggle-btn-div">
+        <button class="hamburger-btn mt-2" type="button" mat-button (click)="drawer.toggle()">
+          <mat-icon class="icon">lunch_dining</mat-icon>
+        </button>
+      </div>
+    </div>
     <div class="page container">
+      <!-- Pages -->
       <router-outlet></router-outlet>
     </div>
   </div>
