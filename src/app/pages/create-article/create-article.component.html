@@ -16,7 +16,8 @@
           <!-- Published Date -->
           <mat-form-field appearance="fill" class="w-100">
             <mat-label>Choose Published Date</mat-label>
-            <input readonly="true" matInput [matDatepicker]="picker" class="w-100" formControlName="dtPublished">
+            <input readonly="true" matInput [min]="today" [matDatepicker]="picker" class="w-100"
+              formControlName="dtPublished">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>

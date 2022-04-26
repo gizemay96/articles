@@ -16,6 +16,7 @@ export class CreateArticleComponent implements OnInit {
   loading = false;
   articles: Article[];
   articleForm = new FormGroup({});
+  today = new Date();
 
   // Text Editor Configrations
   editorConfig: AngularEditorConfig = {
@@ -72,7 +73,7 @@ export class CreateArticleComponent implements OnInit {
     this.articleForm = this.fb.group({
       title: new FormControl('', [Validators.required, Validators.minLength(3),]),
       dtPublished: new FormControl('', [Validators.required]),
-      content: new FormControl('', [Validators.required, Validators.minLength(20)])
+      content: new FormControl('', [Validators.required, Validators.minLength(50)])
     });
   }
 
