@@ -15,6 +15,7 @@ export class ArticleDetailComponent implements OnInit {
   articles: Article[] = [];
   selectedArticle: Article | undefined;
   haveDeleteAccess = false;
+  loading = false;
 
   constructor(
     private store: Store, 
@@ -35,10 +36,12 @@ export class ArticleDetailComponent implements OnInit {
   }
 
   deleteArticle(){
+    this.loading = true;
     this.store.dispatch(removeArticle(this.selectedArticle));
     setTimeout(() => {
-      this.router.navigate(['/home'])
-    }, 500);
+      this.loading = false;
+      this.router.navigate(['/home']);
+    }, 1500);
   }
 
 }

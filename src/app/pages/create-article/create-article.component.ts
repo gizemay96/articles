@@ -13,6 +13,7 @@ import { addArticle, getArticles } from 'src/app/_store/actions/article.actions'
   styleUrls: ['./create-article.component.scss']
 })
 export class CreateArticleComponent implements OnInit {
+  loading = false;
   articles: Article[];
   articleForm = new FormGroup({});
 
@@ -80,13 +81,17 @@ export class CreateArticleComponent implements OnInit {
   }
 
   saveArticle() {
+    this.loading = true;
     if (this.articleForm.valid) {
       const params = this.getArticleResponse(this.articleForm.getRawValue());
       this.store.dispatch(addArticle(params));
-      this.articleForm.reset();
       setTimeout(() => {
+        this.loading = false
+        this.articleForm.reset();
         this.router.navigate(['/article', params.id])
-      }, 200);
+      }, 1500);
+    } else {
+      this.loading = false;
     }
   }
 

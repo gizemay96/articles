@@ -8,6 +8,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_FORMATS } from '@angular/material/core';
 import { MomentDateModule } from '@angular/material-moment-adapter';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 
 
@@ -21,7 +23,9 @@ import {MatDialogModule} from '@angular/material/dialog';
           MatDatepickerModule,
           MatNativeDateModule,
           MomentDateModule,
-          MatDialogModule
+          MatDialogModule,
+          MatProgressSpinnerModule
+          
 
      ],
      declarations: [
@@ -34,7 +38,9 @@ import {MatDialogModule} from '@angular/material/dialog';
           MatDatepickerModule,
           MatNativeDateModule,
           MomentDateModule,
-          MatDialogModule
+          MatDialogModule,
+          MatProgressSpinnerModule
+          
      ],
      providers: [
           {
