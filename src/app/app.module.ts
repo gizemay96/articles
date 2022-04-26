@@ -7,25 +7,28 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { SharedModule } from './modules/shared.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppMaterailModule } from './modules/material.module';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './_store/reducers';
 
 import { localStorageSync } from 'ngrx-store-localstorage';
+import { LoginComponent } from './components/login/login.component';
 
 export function localStorageSyncReducer(rootReducer: any) {
   return localStorageSync({ keys: ['articles'], rehydrate: true })(rootReducer);
 }
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     StoreModule.forRoot(reducers, {
       metaReducers: [localStorageSyncReducer],
       runtimeChecks: {

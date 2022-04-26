@@ -1,6 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
 import { addArticle, getArticles, removeArticle } from '../actions/article.actions';
-import articlesData from '../../json/articles.json'
 import { Article } from 'src/app/types/article.type';
 
 

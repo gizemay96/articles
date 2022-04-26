@@ -3,6 +3,7 @@
           "id": 1,
           "role": 1,
           "dsRole": "Admin",
-          "userName": "User1"
+          "userName": "User1",
+          "password": "123456"
      }
 ]

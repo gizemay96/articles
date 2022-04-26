@@ -59,11 +59,11 @@ export class CreateArticleComponent implements OnInit {
     ]
   };
 
-  test: any;
 
-
-
-  constructor(private fb: FormBuilder, private store: Store) {
+  constructor(
+    private fb: FormBuilder,
+    private store: Store
+  ) {
     this.articleForm = this.fb.group({
       title: new FormControl('', [Validators.required, Validators.minLength(3),]),
       dsPublishedDate: new FormControl('', [Validators.required]),
@@ -83,7 +83,7 @@ export class CreateArticleComponent implements OnInit {
   getArticleResponse(formValues = {}) {
     return {
       id: 0,
-      userImage: "https://source.unsplash.com/user/c_v_r/900x910",
+      userImage: `https://source.unsplash.com/user/c_v_r/900x910`,
       articleImage: "https://source.unsplash.com/user/c_v_r/900x900",
       ...formValues
     }

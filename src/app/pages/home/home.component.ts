@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Article } from 'src/app/types/article.type';
 import { getArticles, removeArticle } from 'src/app/_store/actions/article.actions';
-import articlesData from '../../json/articles.json'
 
 @Component({
   selector: 'app-home',
@@ -11,7 +10,7 @@ import articlesData from '../../json/articles.json'
 })
 export class HomeComponent implements OnInit {
 
-  articles: Article[] = articlesData;
+  articles: Article[] = [];
 
   constructor(private store: Store) {
     this.store.select(getArticles).subscribe(res => {
@@ -22,7 +21,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deleteArticle(article = {}){
+  deleteArticle(article = {}) {
     this.store.dispatch(removeArticle(article));
   }
 

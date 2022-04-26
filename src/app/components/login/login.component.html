@@ -1,0 +1,37 @@
+<div class="dummy-info text-center">
+     Dummy Username:
+     <b class="text-danger">User1</b>
+     -- Password:
+     <b class="text-danger">123456</b>
+</div>
+
+<div class="login-modal p-5">
+     <div class="container">
+          <h1 class="text-center text-light">Login</h1>
+          <div *ngIf="isError" class="error-messages">
+               <div class="message text-center text-danger p-4">
+                    {{errorMessage}}
+               </div>
+          </div>
+          <div class="content row gx-5 gy-5 align-items-center">
+               <div class="form d-flex justify-content-center" id="grayInput">
+                    <form autocomplete="off" class="w-100" [formGroup]="loginForm" (submit)="login()">
+                         <!-- User Name -->
+                         <mat-form-field appearance="fill" class="w-100">
+                              <mat-label>User Name</mat-label>
+                              <input matInput type="text" formControlName="userName" class="w-100" maxlength="20">
+                         </mat-form-field>
+
+                         <!-- Password -->
+                         <mat-form-field appearance="fill" class="w-100">
+                              <mat-label>Password</mat-label>
+                              <input matInput type="password" formControlName="password" class="w-100" maxlength="20">
+                         </mat-form-field>
+
+                         <button type="submit" class="btn btn-block btn-primary-c w-100 mt-4">Login</button>
+                    </form>
+
+               </div>
+          </div>
+     </div>
+</div>
