@@ -1,0 +1,9 @@
+.create-article-page{
+     .image{
+          display: flex;
+          justify-content: center;
+          img{
+               max-width: 300px !important;
+          }
+     }
+}

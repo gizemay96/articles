@@ -1,0 +1,111 @@
+.mat-dialog-container {
+  border-radius: 40px !important;
+}
+
+
+// Gray Input
+#grayInput .mat-form-field-hide-placeholder .mat-form-field-label-wrapper {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 550;
+}
+
+
+/* Font color */
+#grayInput input.mat-input-element {
+  color: darken($color: gray, $amount: 10);
+  font-weight: 550;
+}
+
+#grayInput .mat-form-field-flex {
+  background-color: white;
+  border-radius: 15px;
+  border: 2px solid lighten($color: gray, $amount: 20);
+  height: 50px;
+}
+
+#grayInput .mat-form-field-infix {
+  top: -6px;
+}
+
+#grayInput .mat-form-field {
+  .mat-form-field-label {
+    color: darken($color: gray, $amount: 10) !important;
+  }
+}
+
+#grayInput .mat-form-field:is(.mat-form-field-invalid) {
+  .mat-form-field-flex {
+    border: 2px solid red !important;
+  }
+
+  .mat-form-field-label {
+    color: red !important;
+  }
+}
+
+#grayInput .mat-form-field:is(.ng-valid) {
+  .mat-form-field-flex {
+    border: 2px solid green !important;
+  }
+
+  .mat-form-field-label {
+    color: green !important;
+  }
+}
+
+#grayInput .mat-form-field-underline {
+  display: none;
+}
+
+#grayInput .mat-button-wrapper {
+  color: gray;
+}
+
+#grayInput .text-editor:is(.ng-invalid):not(.ng-pristine) {
+  .angular-editor-textarea {
+    border: 2px solid red !important;
+    border-radius: 10px;
+  }
+}
+
+#grayInput .text-editor:is(.ng-valid):not(.ng-pristine) {
+  .angular-editor-textarea {
+    border: 2px solid green !important;
+    border-radius: 10px;
+  }
+}
+
+
+
+// Calendar
+
+.mat-calendar-body-active {
+  .mat-calendar-body-today {
+    color: white;
+    background-color: #aa9fff59 !important;
+  }
+}
+
+.mat-calendar-body-selected {
+  color: white;
+  background-color: #aa9fff;
+}
+
+.mat-calendar-body-active>.mat-calendar-body-today {
+  color: white;
+  background-color: #aa9fff;
+}
+
+.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+  color: white;
+  background-color: #aa9fff;
+}
+
+.mat-calendar-body-today {
+  background-color: transparent;
+}
+
+.available .mat-calendar-body-cell-content {
+  background-color: #aa9fff;
+}
