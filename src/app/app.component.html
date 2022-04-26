@@ -3,10 +3,23 @@
     <div class="side-links mt-5">
       <ul class="nav-links">
         <li class="nav-link" routerLink="home">
-          Home
+         <span class="d-flex align-items-center">
+          <img class="logo" src="../assets/image/logo.png" alt="">
+          <div class="nav-text">Article App</div>
+         </span>
         </li>
-        <li class="nav-link" routerLink="create-article">
-          Add Article
+        <hr>
+        <li class="nav-link" routerLink="home" [ngClass]="{'active': isActivePage('/home')}" >
+         <span class="d-flex align-items-center">
+          <img class="nav-icon" src="../assets/image/home.png" alt="">
+          <div class="nav-text">Home</div>
+         </span>
+        </li>
+        <li class="nav-link" routerLink="create-article" [ngClass]="{'active': isActivePage('/create-article')}">
+         <span class="d-flex align-items-center">
+          <img class="nav-icon" src="../assets/image/write.png" alt="">
+          <div class="nav-text">Add Article</div>
+         </span>
         </li>
       </ul>
     </div>

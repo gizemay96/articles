@@ -1,12 +1,25 @@
 <div class="article-detail-page">
-    <div class="content mt-5" *ngIf="selectedArticle">
-     <div class="header">
-          <div class="user-img">
-               <img [src]="selectedArticle.userImage" alt="">
-          </div>
-          <div class="user-info">
-               {{selectedArticle.excerpt}}
-          </div>
-     </div>
+  <div class="content" *ngIf="selectedArticle">
+    <div class="header d-flex justify-content-between">
+      <div class="d-flex">
+        <div class="user-img">
+          <img [src]="selectedArticle.userImage" alt="">
+        </div>
+        <div class="user-info">
+          <h2> {{selectedArticle.excerpt}}</h2>
+          <h5>{{selectedArticle.dtPublished}}</h5>
+        </div>
+      </div>
+      <div class="article-title">
+        <h1>{{selectedArticle.title}}</h1>
+        <button *ngIf="haveDeleteAccess" (click)="deleteArticle()" class="btn btn-sm btn-primary-c">Delete Article</button>
+      </div>
     </div>
+    <hr class="text-dark">
+    <div class="article-detail mt-5">
+      <div class="text-dark">
+        <div [innerHTML]="selectedArticle.content | safeHtml"></div>
+      </div>
+    </div>
+  </div>
 </div>

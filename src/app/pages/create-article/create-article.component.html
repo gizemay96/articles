@@ -1,22 +1,22 @@
 <div class="create-article-page">
   <div class="container mt-5">
-    <h1>Create Article</h1>
-    <div class="content row gx-5 gy-5 mt-5 align-items-center">
-      <div class="image col-4">
+    <h1 class="page-header">Create Article</h1>
+    <div class="content row gx-5 gy-5 align-items-center">
+      <div class="image col-xl-4">
         <img class="w-100" src="../../../assets/image/writer-bear.png" alt="">
       </div>
-      <div class="form col-8 d-flex justify-content-center" id="grayInput">
+      <div class="form col-xl-8 d-flex justify-content-center" id="grayInput">
         <form autocomplete="off" class="w-100" [formGroup]="articleForm" (submit)="saveArticle()">
           <!-- Title -->
           <mat-form-field appearance="fill" class="w-100">
             <mat-label>Title</mat-label>
-            <input matInput type="text" formControlName="title" class="w-100" maxlength="20">
+            <input matInput type="text" formControlName="title" class="w-100" maxlength="40">
           </mat-form-field>
 
           <!-- Published Date -->
           <mat-form-field appearance="fill" class="w-100">
             <mat-label>Choose Published Date</mat-label>
-            <input matInput [matDatepicker]="picker" class="w-100" formControlName="dsPublishedDate">
+            <input readonly="true" matInput [matDatepicker]="picker" class="w-100" formControlName="dtPublished">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>

@@ -21,7 +21,7 @@ export function localStorageSyncReducer(rootReducer: any) {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

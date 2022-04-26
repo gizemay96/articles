@@ -4,5 +4,6 @@ export interface Article {
      dtPublished: string,
      excerpt: string,
      userImage: string,
-     articleImage: string
+     articleImage: string,
+     content: string
 }

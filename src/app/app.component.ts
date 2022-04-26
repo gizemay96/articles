@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,9 +15,13 @@ export class AppComponent {
     this.innerWidth = window.innerWidth;
   }
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.innerWidth = window.innerWidth;
+  }
+
+  isActivePage(url) {
+    return this.router.url === url;
   }
 }

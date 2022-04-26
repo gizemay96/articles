@@ -75,3 +75,37 @@
     border-radius: 10px;
   }
 }
+
+
+
+// Calendar
+
+.mat-calendar-body-active {
+  .mat-calendar-body-today {
+    color: white;
+    background-color: #aa9fff59 !important;
+  }
+}
+
+.mat-calendar-body-selected {
+  color: white;
+  background-color: #aa9fff;
+}
+
+.mat-calendar-body-active>.mat-calendar-body-today {
+  color: white;
+  background-color: #aa9fff;
+}
+
+.mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+  color: white;
+  background-color: #aa9fff;
+}
+
+.mat-calendar-body-today {
+  background-color: transparent;
+}
+
+.available .mat-calendar-body-cell-content {
+  background-color: #aa9fff;
+}

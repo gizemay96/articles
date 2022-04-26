@@ -1,6 +1,6 @@
 <section class="home">
      <div class="article-list mt-5">
-          <h1>Articles</h1>
+          <h1 class="page-header">Articles</h1>
           <div class="row gy-5" *ngIf="articles.length > 0">
                <div class="col-xl-4 col-md-6 p-4" *ngFor="let article of articles">
                     <app-card [article]="article"></app-card>

@@ -1,20 +1,38 @@
-.sidenav{
-     background-color: #aa9fff;
-     padding: 20px 60px 20px 0px;
-     border-top-right-radius: 15px;
-     border-bottom-right-radius: 15px;
+.sidenav {
+  background-color: #aa9fff;
+  padding: 20px 60px 20px 0px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
-.mat-drawer-container{
-     background-color: unset;
+.mat-drawer-container {
+  background-color: unset;
 }
 
-.nav-links{
-     .nav-link{
-          color: white !important;
-          font-size: 1.2rem;
-          font-weight: 600;
-          cursor: pointer;
-          margin: 20px 0;
-     }
+.nav-links {
+  .logo {
+    width: 40px;
+  }
+
+  .nav-icon {
+    width: 25px;
+  }
+
+  .nav-link {
+    color: white !important;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 20px 0;
+  }
+
+  .nav-link:is(.active) {
+     color: white !important;
+     background-color: #424242;
+     border-radius: 15px;
+   }
+
+  .nav-text {
+    margin: 5px 0 0 10px;
+  }
 }

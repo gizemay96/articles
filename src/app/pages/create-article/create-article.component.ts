@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { Store } from '@ngrx/store';
 import { AuthService } from 'src/app/services/auth.service';
-import { addArticle } from 'src/app/_store/actions/article.actions';
+import { Article } from 'src/app/types/article.type';
+import { addArticle, getArticles } from 'src/app/_store/actions/article.actions';
 
 @Component({
   selector: 'app-create-article',
@@ -11,6 +13,7 @@ import { addArticle } from 'src/app/_store/actions/article.actions';
   styleUrls: ['./create-article.component.scss']
 })
 export class CreateArticleComponent implements OnInit {
+  articles: Article[];
   articleForm = new FormGroup({});
 
   // Text Editor Configrations
@@ -26,9 +29,6 @@ export class CreateArticleComponent implements OnInit {
     enableToolbar: true,
     showToolbar: true,
     placeholder: 'Enter text here...',
-    defaultParagraphSeparator: '',
-    defaultFontName: '',
-    defaultFontSize: '',
     fonts: [
       { class: 'arial', name: 'Arial' },
       { class: 'times-new-roman', name: 'Times New Roman' },
@@ -51,24 +51,26 @@ export class CreateArticleComponent implements OnInit {
       },
     ],
     uploadUrl: 'v1/image',
-    uploadWithCredentials: false,
-    sanitize: true,
+    uploadWithCredentials: true,
+    sanitize: false,
     toolbarPosition: 'top',
-    toolbarHiddenButtons: [
-      ['bold', 'italic'],
-      ['fontSize']
-    ]
+    toolbarHiddenButtons: [['insertImage', 'insertVideo']]
   };
 
 
   constructor(
     private fb: FormBuilder,
     private store: Store,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
+    this.store.select(getArticles).subscribe(res => {
+      this.articles = res.articles;
+    });
+
     this.articleForm = this.fb.group({
       title: new FormControl('', [Validators.required, Validators.minLength(3),]),
-      dsPublishedDate: new FormControl('', [Validators.required]),
+      dtPublished: new FormControl('', [Validators.required]),
       content: new FormControl('', [Validators.required, Validators.minLength(20)])
     });
   }
@@ -82,15 +84,19 @@ export class CreateArticleComponent implements OnInit {
       const params = this.getArticleResponse(this.articleForm.getRawValue());
       this.store.dispatch(addArticle(params));
       this.articleForm.reset();
+      setTimeout(() => {
+        this.router.navigate(['/article', params.id])
+      }, 200);
     }
   }
 
   getArticleResponse(formValues = {}) {
-    const user = this.authService.getUser()
+    const user = this.authService.getUser();
+    let newId = this.articles.length + 1;
     return {
-      id: 0,
-      userImage: `https://source.unsplash.com/user/c_v_r/900x910`,
-      articleImage: "https://source.unsplash.com/user/c_v_r/900x900",
+      id: this.articles.length + 1,
+      userImage: `https://source.unsplash.com/user/c_v_r/900x91${newId.toString()[0]}`,
+      articleImage: `https://source.unsplash.com/user/c_v_r/900x90${newId.toString()[0]}`,
       excerpt: user?.userName,
       ...formValues
     }
