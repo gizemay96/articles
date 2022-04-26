@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from 'src/app/components/login/login.component';
 
 @Component({
   selector: 'app-no-auth',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoAuthComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  openLoginDialog() {
+    this.dialog.open(LoginComponent);
   }
 
 }

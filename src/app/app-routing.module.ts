@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'create-article',
     loadChildren: () => import('./pages/create-article/create-article.module').then(m => m.CreateArticleModule),
-    // canActivate: [AuthGuardGuard],
+    canActivate: [AuthGuardGuard],
     data: {}
   },
   {

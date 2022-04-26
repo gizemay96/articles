@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_FORMATS } from '@angular/material/core';
 import { MomentDateModule } from '@angular/material-moment-adapter';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -19,7 +20,8 @@ import { MomentDateModule } from '@angular/material-moment-adapter';
           MatIconModule,
           MatDatepickerModule,
           MatNativeDateModule,
-          MomentDateModule
+          MomentDateModule,
+          MatDialogModule
 
      ],
      declarations: [
@@ -31,7 +33,8 @@ import { MomentDateModule } from '@angular/material-moment-adapter';
           MatIconModule,
           MatDatepickerModule,
           MatNativeDateModule,
-          MomentDateModule
+          MomentDateModule,
+          MatDialogModule
      ],
      providers: [
           {
