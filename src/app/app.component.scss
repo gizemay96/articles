@@ -12,6 +12,7 @@
 .logo {
   width: 40px;
 }
+
 .nav-links {
 
   .nav-icon {
@@ -27,27 +28,34 @@
   }
 
   .nav-link:is(.active) {
-     color: white !important;
-     background-color: #424242;
-     border-radius: 15px;
-   }
+    color: white !important;
+    background-color: #424242;
+    border-radius: 15px;
+  }
 
   .nav-text {
     margin: 5px 0 0 10px;
   }
 }
 
-.mobile-nav{
+@media screen and(min-width: 960px) {
+  .mobile-nav {
+    display: none !important;
+  }
+}
+
+.mobile-nav {
   padding: 0 15px;
-  .hamburger-btn{
+
+  .hamburger-btn {
     background: none;
     border: none;
-  
-    .icon{
+
+    .icon {
       font-size: 40px;
       color: #7e627d;
       margin-right: 10px;
     }
   }
-  
+
 }
