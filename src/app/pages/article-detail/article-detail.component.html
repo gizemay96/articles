@@ -1,0 +1,12 @@
+<div class="article-detail-page">
+    <div class="content mt-5" *ngIf="selectedArticle">
+     <div class="header">
+          <div class="user-img">
+               <img [src]="selectedArticle.userImage" alt="">
+          </div>
+          <div class="user-info">
+               {{selectedArticle.excerpt}}
+          </div>
+     </div>
+    </div>
+</div>

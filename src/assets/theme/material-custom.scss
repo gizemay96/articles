@@ -1,5 +1,4 @@
-
-.mat-dialog-container{
+.mat-dialog-container {
   border-radius: 40px !important;
 }
 
@@ -61,4 +60,18 @@
 
 #grayInput .mat-button-wrapper {
   color: gray;
+}
+
+#grayInput .text-editor:is(.ng-invalid):not(.ng-pristine) {
+  .angular-editor-textarea {
+    border: 2px solid red !important;
+    border-radius: 10px;
+  }
+}
+
+#grayInput .text-editor:is(.ng-valid):not(.ng-pristine) {
+  .angular-editor-textarea {
+    border: 2px solid green !important;
+    border-radius: 10px;
+  }
 }

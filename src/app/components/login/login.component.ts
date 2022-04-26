@@ -34,7 +34,8 @@ export class LoginComponent implements OnInit {
       this.errorMessage = response.errorMessage;
       return;
     } else {
-      this.dialogRef.close();
+      localStorage.setItem('user' , JSON.stringify(response.payload));
+      this.dialogRef.close({isSuccess: true});
     }
   }
 

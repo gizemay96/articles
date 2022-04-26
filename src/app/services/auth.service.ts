@@ -12,7 +12,16 @@ export class AuthService {
   constructor() { }
 
   login(user: User) {
-    if (this.hasLoginError(user)) {
+    return this.getAuthResponse(user);
+  }
+
+  isAuthenticated(): boolean {
+    return !!window.localStorage.getItem('user');
+  }
+
+  getAuthResponse(user: User) {
+    let dbUser = users.find(dbUser => dbUser.userName === user.userName && dbUser.password === user.password);
+    if (!dbUser) {
       return {
         isError: true,
         errorMessage: 'Wrong username or password !',
@@ -21,19 +30,15 @@ export class AuthService {
     } else {
       return {
         isError: false,
-        errorMessage: 'Wrong username or password !',
-        payload: user
+        errorMessage: '',
+        payload: dbUser
       }
     }
   }
 
-  isAuthenticated(): boolean {
-    return !!window.sessionStorage.getItem('user');
-  }
-
-  hasLoginError(user: User) {
-    let authResponse = !users.some(dbUser => dbUser.userName === user.userName && dbUser.password === user.password);
-    return authResponse;
+  getUser() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user;
   }
 
 }

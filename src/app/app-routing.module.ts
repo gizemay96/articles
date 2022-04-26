@@ -16,6 +16,11 @@ const routes: Routes = [
     data: {}
   },
   {
+    path: 'article/:id',
+    loadChildren: () => import('./pages/article-detail/article-detail.module').then(m => m.ArticleDetailModule),
+    data: {}
+  },
+  {
     path: 'no-auth',
     loadChildren: () => import('./pages/no-auth/no-auth.module').then(m => m.NoAuthModule),
     data: {}

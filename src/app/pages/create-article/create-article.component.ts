@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { Store } from '@ngrx/store';
+import { AuthService } from 'src/app/services/auth.service';
 import { addArticle } from 'src/app/_store/actions/article.actions';
 
 @Component({
@@ -62,12 +63,13 @@ export class CreateArticleComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private store: Store
+    private store: Store,
+    private authService: AuthService
   ) {
     this.articleForm = this.fb.group({
       title: new FormControl('', [Validators.required, Validators.minLength(3),]),
       dsPublishedDate: new FormControl('', [Validators.required]),
-      content: new FormControl('', [Validators.required, Validators.minLength(50)])
+      content: new FormControl('', [Validators.required, Validators.minLength(20)])
     });
   }
 
@@ -76,15 +78,20 @@ export class CreateArticleComponent implements OnInit {
   }
 
   saveArticle() {
-    const params = this.getArticleResponse(this.articleForm.getRawValue());
-    this.store.dispatch(addArticle(params));
+    if (this.articleForm.valid) {
+      const params = this.getArticleResponse(this.articleForm.getRawValue());
+      this.store.dispatch(addArticle(params));
+      this.articleForm.reset();
+    }
   }
 
   getArticleResponse(formValues = {}) {
+    const user = this.authService.getUser()
     return {
       id: 0,
       userImage: `https://source.unsplash.com/user/c_v_r/900x910`,
       articleImage: "https://source.unsplash.com/user/c_v_r/900x900",
+      excerpt: user?.userName,
       ...formValues
     }
   }

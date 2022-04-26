@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { LoginComponent } from 'src/app/components/login/login.component';
 
 @Component({
@@ -9,13 +10,20 @@ import { LoginComponent } from 'src/app/components/login/login.component';
 })
 export class NoAuthComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   openLoginDialog() {
-    this.dialog.open(LoginComponent);
+    const dialogRef = this.dialog.open(LoginComponent);
+    dialogRef.afterClosed().subscribe(params => {
+      if (params && params.isSuccess) {
+        setTimeout(() => {
+          this.router.navigate(['/create-article'], { replaceUrl: true });
+        }, 500);
+      }
+    })
   }
 
 }

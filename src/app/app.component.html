@@ -1,15 +1,12 @@
 <mat-drawer-container class="drawer-container" autosize>
-  <mat-drawer #drawer class="sidenav" mode="side" opened>
+  <mat-drawer #drawer class="sidenav" mode="side" [opened]="innerWidth > 960">
     <div class="side-links mt-5">
       <ul class="nav-links">
         <li class="nav-link" routerLink="home">
           Home
         </li>
         <li class="nav-link" routerLink="create-article">
-          Create Article
-        </li>
-        <li class="nav-link" routerLink="profile">
-          Profile
+          Add Article
         </li>
       </ul>
     </div>
