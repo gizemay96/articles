@@ -10,8 +10,8 @@
                     <div class="card__header-text">
                          <h3 class="card__title">{{article.title}}</h3>
                          <div class="d-flex justify-content-between">
-                              <span class="card__status">{{article.dtPublished | date: 'dd/MM/yy'}}</span>
-                              <span class="card__status">excerpt : {{article.excerpt}}</span>
+                              <span class="card__status">{{article.dtPublished | amLocale:'en' | amDateFormat:'MMM d, y'}}</span>
+                              <span class="card__status">Excerpt : {{article.excerpt}}</span>
                          </div>
                     </div>
                </div>
