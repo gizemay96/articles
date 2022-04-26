@@ -44,4 +44,8 @@ export class ArticleDetailComponent implements OnInit {
     }, 1500);
   }
 
+  getUserLocale(){
+    return navigator.languages[0];
+  }
+
 }

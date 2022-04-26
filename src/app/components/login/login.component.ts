@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  loading = false;
   loginForm = new FormGroup({});
   isError = false;
   errorMessage = '';
@@ -28,14 +29,19 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.loading = true;
     const response = this.authService.login(this.loginForm.getRawValue());
     if (response.isError) {
       this.isError = true;
       this.errorMessage = response.errorMessage;
+      this.loading = false;
       return;
     } else {
-      localStorage.setItem('user' , JSON.stringify(response.payload));
-      this.dialogRef.close({isSuccess: true});
+      setTimeout(() => {
+        localStorage.setItem('user', JSON.stringify(response.payload));
+        this.loading = false;
+        this.dialogRef.close({ isSuccess: true });
+      }, 500);
     }
   }
 
